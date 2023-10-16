@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scaled=1, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <form id="surveyForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required><br>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required><br>
+
+            <label for="country">Country:</label>
+            <select id="country" required>
+                <option value="" disabled selected>Select your country</option>
+                <!-- Add your list of countries here -->
+                <option value="country1">Country 1</option>
+                <option value="country2">Country 2</option>
+            </select><br>
+
+            <label>Gender:</label><br>
+            <input type="checkbox" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="checkbox" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+
+            <label for="profession">Profession:</label>
+            <input type="text" id="profession" required><br>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" required><br>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" required><br>
+
+            <div class="btn-container">
+                <button type="button" onclick="submitForm()">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const dob = document.getElementById('dob').value;
+            const country = document.getElementById('country').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const profession = document.getElementById('profession').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+
+            if (!gender) {
+                alert('Please select a gender');
+                return;
+            }
+
+            const genderValue = gender.value;
+
+            const popupText = `
+                First Name: ${firstName}
+                Last Name: ${lastName}
+                Date of Birth: ${dob}
+                Country: ${country}
+                Gender: ${genderValue}
+                Profession: ${profession}
+                Email: ${email}
+                Mobile Number: ${mobile}
+            `;
+
+            alert(popupText);
+            document.getElementById('surveyForm').reset();
+        }
+    </script>
+
+</body>
+
+</html>
