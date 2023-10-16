@@ -1,0 +1,8 @@
+
+var arrayToSort = [4, 2, 7, 1, 9, 3, 5];
+
+arrayToSort.sort(function(a, b) {
+    return b - a;
+});
+
+console.log(arrayToSort);
